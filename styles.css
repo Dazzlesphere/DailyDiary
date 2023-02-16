@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -5,28 +7,36 @@
 }
 
 body {
-    font-family: sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     color: #fff;
     background: #6a00ff;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 50px;
 }
 
 h1 {
     font-size: 3rem;
-    margin: 20px 0 50px;
     text-align: center;
 }
 
 .container {
     max-width: 600px;
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 20px;
     background: #f0f0f0;
     color: #444;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .input-form {
-    margin-bottom: 40px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1rem;
+    background: rgba(0,0,0,0.5);
+    border-radius: 5px;
 }
 
 .input-form .row {
@@ -35,14 +45,19 @@ h1 {
 
 .input-form .todo-input {
     flex: 1;
-    padding: 10px;
+    padding: 15px;
     margin-right: 20px;
     border: solid 1px #ccc;
     border-radius: 5px;
+
+    font-size: 1rem;
+    color: #444;
 }
 
 .input-form .todo-add {
+    min-width: 100px;
     padding: 5px 20px;
+    font-size: 1.2rem;
     color: #fff;
     border: solid 1px #555;
     background: #b368e7;
@@ -57,6 +72,7 @@ h1 {
     border: solid 1px #ccc;
     background: #fff;
     border-radius: 4px;
+    box-shadow: 0 0 2px rgba(0,0,0,0.3) inset;
 }
 
 .todo-list .todo-text {
@@ -80,4 +96,41 @@ h1 {
 .todo-list .todo-delete {
     background: brown;
     color: #fff;
+}
+
+.todo-list .todo-status {
+    width: 26px;
+    height: 26px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    border: solid 1px #ccc;
+    border-radius: 100%;
+}
+
+.todo-list .todo-status i {
+    display: none;
+    color: #aaa;
+    line-height: 1;
+}
+
+.todo-list .item:hover .todo-status {
+    border-color: #999;
+    box-shadow: 0 0 3px rgba(0,0,0,0.5)
+}
+
+.todo-list .item:hover .todo-status i,
+.todo-list .item.done .todo-status i {
+    display:block;
+}
+
+.todo-list .item.done .todo-text {
+    color: #aaa;
+    text-decoration: line-through;
+}
+
+.todo-list .item.done .todo-status i {
+    color: #097709;
 }
