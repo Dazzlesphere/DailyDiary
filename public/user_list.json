@@ -1,0 +1,21 @@
+{
+    "users": [
+    {
+        "name": "Amir",
+        "age": 27,
+        "email": "amir@something.com",
+        "isAdmin": true
+    },
+    {
+        "name": "Sana",
+        "age": 20,
+        "email": "sana@something.com",
+        "isAdmin": false
+    },
+    {
+        "name": "Junaid",
+        "age": 25,
+        "email": "junaid@something.com",
+        "isAdmin": false
+    }]
+}
