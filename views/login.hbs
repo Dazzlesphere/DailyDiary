@@ -1,13 +1,35 @@
-<form method="POST" action="/authenticate" class="login-container">
-    <h2 class="title">{{pageTitle}}</h2>
-    <div class="input-row">
-        <input type="text" name="email" id="username" class="text-input" placeholder="Email">
-    </div>
-    <div class="input-row">
-        <input type="password" name="password" id="password" class="text-input" placeholder="Password">
-    </div>
-    <div class="input-row">
-        <input type="submit" value="Login" class="btn btn-primary" />
-    </div>
-    <a href="#">Register</a>
-</form>
+<div class="container">
+    <form method="POST" action="/authenticate" class="form">
+        <h2 class="title">{{pageTitle}}</h2>
+        <div class="input-row social">
+            <a href="/" class="btn facebook">
+                <span class="icon fa-brands fa-facebook"></span>
+                <span class="text">Facebook</span>
+            </a>
+            <a href="/" class="btn google">
+                <img src="/images/icons/icon_google.webp" class="icon" alt="Google Icon" />
+                <span class="text">Google</span>
+            </a>
+        </div>
+        <div class="input-row">
+            <label for="username" class="input-label">Email</label>
+            <input type="email" name="username" id="username" class="text-input" placeholder="Enter your email" required>
+            <div class="highlight"><span class="icon fa-regular fa-envelope"></span></div>
+        </div>
+        <div class="input-row">
+            <label for="password" class="input-label">Password</label>
+            <input type="password" name="password" id="password" class="text-input" placeholder="Enter your password" required>
+            <div class="highlight"><span class="icon fa-solid fa-key"></span></div>
+        </div>
+        <div class="input-row justify-end">
+            <a href="/forgot-password">Forgot Password?</a>
+        </div>
+        <div class="input-row">
+            <button type="submit" class="btn btn-primary">Sign In</button>
+        </div>
+        <div class="input-row links">
+            <span>Not a member?</span>
+            <a href="#">Sign up now</a>
+        </div>
+    </form>
+</div>

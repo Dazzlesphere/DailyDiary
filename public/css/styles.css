@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,500;0,600;0,700;1,200;1,400;1,500;1,600;1,700&display=swap');
 
 :root {
     --primary-color: purple;
-    --secondary-color: #1f8d42;
+    --secondary-color: #15557c;
     --light-gray: #EFF1F8;
 }
 
@@ -12,10 +12,15 @@
     box-sizing: border-box;
 }
 
+html {
+    font-size: 16px;
+}
+
 body {
-    font-family: 'Source Sans Pro', sans-serif;
-    color:#444;
-    background: linear-gradient(-135deg, #d251d7, #683ffa);
+    font-family: 'Poppins', sans-serif;
+    color:#666;
+    background: url(https://colorlib.com/etc/lf/Login_v5/images/bg-01.jpg) no-repeat;
+    background-size: cover;
 
     display: flex;
     flex-direction: column;
@@ -28,25 +33,17 @@ h1 {
 }
 
 .container {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-    background: #f0f0f0;
-    color: #444;
-    border-radius: 5px;
+    width: 80vw;
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2)
 }
 
 .btn {
     position: relative;
-}
-
-.btn:hover {
-    box-shadow: 0 0 5px rgba(150,150,150, 0.4);
-}
-
-.btn:focus {
-    top: 1px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.4) inset;
 }
 
 .input-form {
@@ -153,54 +150,185 @@ h1 {
     color: #097709;
 }
 
-/* LOGIN FORM */
-.login-page .root {
-    min-height: 100vh;
+/* LOGIN/REGISTER PAGE */
+.auth-page .root {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    min-height: 100vh;
 }
 
-.login-container {
-    width: 90vw;
-    max-width: 500px;
-    min-height: 90vh;
-    margin:0 auto;
-    padding: 2rem;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow:0 0 10px rgba(0,0,0,0.2)
-}
-
-.login-container .title {
+.auth-page .container .title {
     text-align: center;
-    font-size: 2rem;
+    font-size: 2.5rem;
+    font-weight: 500;
 }
 
-.login-container .input-row {
-    position: relative;
-    margin-top: 25px;
+.form {
+    min-height:80vh;
     display: flex;
     flex-direction: column;
 }
 
-.text-input {
-    flex: 1;
+.form .input-row {
+    position: relative;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
 
+.form .input-row.justify-end {
+    align-items: flex-end;
+}
+
+.form .input-row.links {
+    text-align: center;
+    padding-top: 20px;
+    margin-top: auto;
+    display: block;
+    color: #999;
+}
+
+.form .input-label {
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+.form .text-input {
+    position: relative;
+    flex: 1;
     font-size: 1rem;
     color: #777;
     padding: 15px;
-    background: #eee;
-    border: solid 1px #ccc;
-    border-radius: 10px;
+    padding-left: 45px;
+    background: transparent;
+    border: none;
 }
 
-.login-container .btn {
+.form .text-input:focus {
+    outline: none;
+    background: #f6f6f6;
+}
+
+.form .text-input + .highlight {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: #ccc;
+}
+
+.form .text-input + .highlight::after {
+    content: "";
+    position:absolute;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background: #444;
+    transition: all .4s;
+}
+
+.form .text-input:focus + .highlight::after {
+    width: 100%;
+    left: 0;
+    right: 0;
+}
+
+.form .input-row .icon {
+    position: absolute;
+    left: 15px;
+    bottom: 15px;
+    z-index: 2;
+}
+
+.form .text-input:focus + .highlight > .icon {
+    color: var(--primary-color);
+}
+
+.form .btn {
+    position: relative;
     flex: 1;
     font-size: 1.2rem;
-    padding: 10px;
-    background-color: var(--secondary-color);
+    position: relative;
+    z-index: 2;
+    display: block;
+    padding: 15px;
+    background-color: #333;
     color: #fff;
-    border: solid 1px rgba(0,0,0,0.2);
-    border-radius: 10px
+    border: none;
+    border-radius: 10px;
+    transition: all .4s;
+}
+
+.form .btn::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    opacity: 0;
+    background: linear-gradient(90deg, #b991eb, #ecb0e8);
+    border-radius: 10px;
+    transition: all .4s;
+}
+
+.form .btn:hover {
+    color: #fff;
+}
+
+.form .btn:hover::before {
+    opacity: 1;
+}
+
+.form a {
+    padding: 2px 4px;
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: all .4s;
+}
+
+.form a:hover {
+    background: #f0f0f0;
+}
+
+.form a:hover {
+    color: var(--primary-color);
+}
+
+.form .input-row.social {
+    flex-direction: row;
+    gap: 20px;
+    padding: 20px;
+    border-top: solid 2px #dfdfdf;
+    border-bottom: solid 2px #dfdfdf;
+}
+
+.form .input-row.social .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form .btn .icon {
+    position: static;
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
+.form .btn.facebook {
+    background: #3b5998;
+}
+
+.form .btn.google {
+    background: #efefef;
+    color: #333;
+}
+
+.form .btn.google:hover {
+    color: #fff;
 }
